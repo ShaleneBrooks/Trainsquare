@@ -25,7 +25,7 @@ ALTER proc [dbo].[Attendance_SelectAll]
 
 AS
 
-/* TEST CODE
+/*---------Test Code------------
 	
 			Declare @pageIndex int = 0
 					,@pageSize int = 20
