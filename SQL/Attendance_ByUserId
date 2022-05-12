@@ -28,7 +28,8 @@ ALTER proc [dbo].[Attendance_ByUserId]
 
 as
 
-/* TEST CODE
+/*---------Test Code------------
+
 Declare @pageIndex int = 0
 		,@pageSize int = 5
 		,@UserId int = 261
@@ -37,9 +38,6 @@ Execute dbo.Attendance_ByUserId
 		@pageIndex 
 		,@pageSize 
 		,@UserId
-
-
-
 
 */
 BEGIN
