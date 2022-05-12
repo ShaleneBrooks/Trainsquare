@@ -25,7 +25,7 @@ ALTER proc [dbo].[Attendance_Delete_ById]
 
 as
 
-/*
+/*---------Test Code------------
 
 Select *
 FROM dbo.Attendance
@@ -38,6 +38,7 @@ Select *
 FROM dbo.Attendance
 
 */
+
 BEGIN
 
 DELETE
