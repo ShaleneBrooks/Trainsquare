@@ -28,7 +28,7 @@ ALTER proc [dbo].[Attendance_Insert]
 
 as
 
-/*
+/*---------Test Code------------
 Declare @Id int = 0;
 
 Declare @Session int = 142
