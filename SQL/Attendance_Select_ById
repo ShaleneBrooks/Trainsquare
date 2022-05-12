@@ -1,0 +1,69 @@
+USE [Trainsquare]
+GO
+/****** Object:  StoredProcedure [dbo].[Attendance_Select_ById]    Script Date: 5/11/2022 6:18:39 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author: <Shalene Brooks>
+-- Create date: <04/01/2022>
+-- Description: <Select by ID proc for Attendance>
+-- Code Reviewer: <Alicia Moreno>
+
+-- MODIFIED BY:
+-- MODIFIED DATE:
+-- Code Reviewer:
+-- Note:
+-- =============================================
+
+
+ALTER proc [dbo].[Attendance_Select_ById]
+
+@Id int
+
+as
+
+/*
+
+Declare @Id Int = 5;
+Execute dbo.Attendance_Select_ById @Id
+
+
+
+
+*/
+BEGIN
+
+SELECT 
+		a.[Id]
+	,a.[SessionId]
+	,s.[WorkShopId]
+	,ws.[Name]
+	,a.[UserId]
+	,ur.[RoleId]
+	,r.[Name] as [RoleName]
+	,up.[FirstName]
+	,up.[LastName]
+	,[isPresent]
+	,up.[AvatarUrl]
+
+FROM [dbo].[Attendance]
+		AS a INNER JOIN dbo.Sessions AS s
+		ON a.SessionId = s.Id
+		INNER JOIN dbo.UserProfiles AS up
+		ON a.UserId = up.UserId
+		INNER JOIN dbo.UserRoles as ur
+		ON a.UserId = ur.UserId
+		INNER JOIN dbo.Roles as r
+		ON ur.RoleId = r.Id
+		INNER JOIN dbo.WorkShop as ws
+		ON s.WorkShopId = ws.Id
+
+WHERE
+	@Id = a.Id
+
+ORDER BY a.Id
+
+
+END
